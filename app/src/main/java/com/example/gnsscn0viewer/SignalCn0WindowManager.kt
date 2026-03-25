@@ -64,6 +64,10 @@ class SignalCn0WindowManager(
 
     fun getWindowSize(): Int = windowSize
 
+    fun clearAll() {
+        map.clear()
+    }
+
     companion object {
         fun format1(v: Double): String = String.format("%.1f", v)
         fun formatAvg4(v: Double?): String = if (v == null) "--" else String.format("%.4f", v)

@@ -40,10 +40,10 @@ sealed class SatelliteUiItem {
 }
 
 fun constellationName(c: Int): String = when (c) {
-    GnssStatus.CONSTELLATION_GPS -> "GPS"
-    GnssStatus.CONSTELLATION_BEIDOU -> "BDS"
-    GnssStatus.CONSTELLATION_GLONASS -> "GLONASS"
-    GnssStatus.CONSTELLATION_GALILEO -> "Galileo"
+    GnssStatus.CONSTELLATION_GPS -> "🇺🇸 GPS"
+    GnssStatus.CONSTELLATION_BEIDOU -> "🇨🇳 BeiDou"
+    GnssStatus.CONSTELLATION_GLONASS -> "🇷🇺 GLONASS"
+    GnssStatus.CONSTELLATION_GALILEO -> "🇪🇺 Galileo"
     GnssStatus.CONSTELLATION_SBAS -> "SBAS"
     GnssStatus.CONSTELLATION_QZSS -> "QZSS"
     GnssStatus.CONSTELLATION_IRNSS -> "IRNSS"

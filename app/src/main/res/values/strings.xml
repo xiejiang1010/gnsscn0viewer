@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GnssCn0Viewer</string>
+    <string name="main_title">GNSS C/N0 监测面板</string>
+    <string name="main_subtitle">颜色标识：绿色强、橙色中、红色弱</string>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ui_bg">#11151D</color>
+    <color name="ui_surface">#1B212C</color>
+    <color name="ui_header_bg">#244DAB</color>
+    <color name="ui_header_text">#FFFFFF</color>
+    <color name="ui_status_bar">#1A3C86</color>
+    <color name="ui_primary_text">#E9EDF5</color>
+    <color name="ui_secondary_text">#AAB2C4</color>
+    <color name="ui_divider">#2E3645</color>
+
+    <color name="cn0_good_bg">#1D3F2A</color>
+    <color name="cn0_good_text">#8EE4AA</color>
+    <color name="cn0_mid_bg">#47361F</color>
+    <color name="cn0_mid_text">#FFCE84</color>
+    <color name="cn0_low_bg">#4A2323</color>
+    <color name="cn0_low_text">#FFAAAA</color>
+</resources>

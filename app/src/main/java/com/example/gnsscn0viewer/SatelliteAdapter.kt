@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 import com.google.android.flexbox.FlexboxLayout
-
+import android.graphics.drawable.GradientDrawable
 
 class SatelliteAdapter : ListAdapter<SatelliteUiItem, RecyclerView.ViewHolder>(Diff) {
 
@@ -21,7 +21,24 @@ class SatelliteAdapter : ListAdapter<SatelliteUiItem, RecyclerView.ViewHolder>(D
 
         private object Diff : DiffUtil.ItemCallback<SatelliteUiItem>() {
             override fun areItemsTheSame(oldItem: SatelliteUiItem, newItem: SatelliteUiItem): Boolean {
-                return oldItem == newItem
+                // 关键：区分“同一个条目（复用 ViewHolder）”和“内容变化（需要重绑）”
+                return when {
+                    oldItem is SatelliteUiItem.Header && newItem is SatelliteUiItem.Header ->
+                        oldItem.title == newItem.title
+
+                    oldItem is SatelliteUiItem.SignalValuesRow && newItem is SatelliteUiItem.SignalValuesRow ->
+                        oldItem.constellation == newItem.constellation &&
+                            oldItem.signalLabel == newItem.signalLabel &&
+                            oldItem.codeKey == newItem.codeKey
+
+                    oldItem is SatelliteUiItem.Row && newItem is SatelliteUiItem.Row ->
+                        oldItem.constellation == newItem.constellation &&
+                            oldItem.svId == newItem.svId &&
+                            oldItem.signalLabel == newItem.signalLabel &&
+                            oldItem.codeType == newItem.codeType
+
+                    else -> false
+                }
             }
             override fun areContentsTheSame(oldItem: SatelliteUiItem, newItem: SatelliteUiItem): Boolean {
                 return oldItem == newItem
@@ -77,6 +94,7 @@ class SatelliteAdapter : ListAdapter<SatelliteUiItem, RecyclerView.ViewHolder>(D
                     setTypeface(typeface, android.graphics.Typeface.BOLD)
                     setPadding(10, 6, 10, 6)
                     setBackgroundResource(R.drawable.bg_value_chip)
+                    setTextColor(ContextCompat.getColor(context, R.color.ui_primary_text))
                 }
 
                 val lp = FlexboxLayout.LayoutParams(
@@ -94,6 +112,7 @@ class SatelliteAdapter : ListAdapter<SatelliteUiItem, RecyclerView.ViewHolder>(D
 
     private class RowVH(v: View) : RecyclerView.ViewHolder(v) {
         private val tvLine1: TextView = v.findViewById(R.id.tvLine1)
+        private val tvLevel: TextView = v.findViewById(R.id.tvLevel)
         private val tvLine2: TextView = v.findViewById(R.id.tvLine2)
 
         fun bind(item: SatelliteUiItem.Row) {
@@ -104,9 +123,34 @@ class SatelliteAdapter : ListAdapter<SatelliteUiItem, RecyclerView.ViewHolder>(D
             val az = item.azimuthDeg?.let { String.format("%.0f°", it) } ?: "--"
             val el = item.elevationDeg?.let { String.format("%.0f°", it) } ?: "--"
             val fix = if (item.usedInFix) "FIX" else "----"
+            val level = cn0Level(item.cn0DbHz)
 
-            tvLine1.text = "$sys SVID=${item.svId}  ${item.signalLabel}  CN0=$cn0"
+            tvLine1.text = "$sys SVID=${item.svId}  ${item.signalLabel}  C/N0=$cn0 dB-Hz"
             tvLine2.text = "freq=$freq  az=$az  el=$el  $fix  code=${item.codeType ?: "--"}"
+            tvLevel.text = level.label
+            applyLevelStyle(tvLevel, level.bgColorRes, level.textColorRes)
+        }
+
+        private data class Cn0Level(val label: String, val bgColorRes: Int, val textColorRes: Int)
+
+        private fun cn0Level(cn0: Double): Cn0Level {
+            return when {
+                cn0 >= 40.0 -> Cn0Level("优秀信号", R.color.cn0_good_bg, R.color.cn0_good_text)
+                cn0 >= 30.0 -> Cn0Level("良好信号", R.color.cn0_good_bg, R.color.cn0_good_text)
+                cn0 >= 22.0 -> Cn0Level("一般信号", R.color.cn0_mid_bg, R.color.cn0_mid_text)
+                else -> Cn0Level("弱信号", R.color.cn0_low_bg, R.color.cn0_low_text)
+            }
+        }
+
+        private fun applyLevelStyle(view: TextView, bgColorRes: Int, textColorRes: Int) {
+            val context = view.context
+            val bg = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = 999f
+                setColor(ContextCompat.getColor(context, bgColorRes))
+            }
+            view.background = bg
+            view.setTextColor(ContextCompat.getColor(context, textColorRes))
         }
     }
 
