@@ -2,37 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="12dp"
+    android:layout_marginStart="16dp"
     android:layout_marginTop="6dp"
-    android:layout_marginEnd="12dp"
+    android:layout_marginEnd="16dp"
     android:background="@drawable/bg_row_card"
     android:orientation="vertical"
-    android:paddingStart="12dp"
+    android:paddingStart="14dp"
     android:paddingEnd="12dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/tvLine1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/ui_primary_text"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:text="GPS SVID=1  GPS L1C/A  CN0=35.0" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/tvLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:paddingStart="8dp"
-        android:paddingTop="2dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="2dp"
-        android:text="良好"
-        android:textSize="11sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvLine1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/ui_primary_text"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:fontFeatureSettings="tnum"
+            android:text="GPS SVID=1  L1C/A  C/N0=35.0 dB-Hz" />
+
+        <TextView
+            android:id="@+id/tvLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingStart="10dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="3dp"
+            android:maxLines="1"
+            android:text="良好信号"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvLine2"
@@ -41,5 +51,6 @@
         android:layout_marginTop="4dp"
         android:textColor="@color/ui_secondary_text"
         android:textSize="12sp"
-        android:text="freq=1575.420 MHz  az=120°  el=45°  FIX  code=C1C" />
+        android:fontFeatureSettings="tnum"
+        android:text="freq=1575.420 MHz  az=120°  el=45°  ----  code=C1C" />
 </LinearLayout>

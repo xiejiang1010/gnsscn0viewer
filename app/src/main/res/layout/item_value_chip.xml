@@ -9,6 +9,8 @@
     android:paddingTop="6dp"
     android:paddingBottom="6dp"
     android:text="35.0"
-    android:textStyle="bold"
+    android:textColor="@color/ui_primary_text"
     android:textSize="14sp"
+    android:fontFamily="sans-serif-medium"
+    android:fontFeatureSettings="tnum"
     android:layout_marginEnd="8dp" />

@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ui_bg">#11151D</color>
-    <color name="ui_surface">#1B212C</color>
-    <color name="ui_header_bg">#244DAB</color>
-    <color name="ui_header_text">#FFFFFF</color>
-    <color name="ui_status_bar">#1A3C86</color>
-    <color name="ui_primary_text">#E9EDF5</color>
-    <color name="ui_secondary_text">#AAB2C4</color>
-    <color name="ui_divider">#2E3645</color>
+    <color name="ui_bg">#0F1217</color>
+    <color name="ui_surface">#181C23</color>
+    <color name="ui_surface_variant">#20252E</color>
+    <color name="ui_header_bg">#181C23</color>
+    <color name="ui_header_text">#E8EBF0</color>
+    <color name="ui_status_bar">#181C23</color>
+    <color name="ui_primary_text">#E8EBF0</color>
+    <color name="ui_secondary_text">#A3AAB7</color>
+    <color name="ui_tertiary_text">#737B89</color>
+    <color name="ui_divider">#2A303A</color>
+    <color name="ui_accent">#8AAEFF</color>
+    <color name="ui_accent_soft">#1E2A45</color>
+    <color name="ui_accent_pressed">#27365A</color>
 
-    <color name="cn0_good_bg">#1D3F2A</color>
-    <color name="cn0_good_text">#8EE4AA</color>
-    <color name="cn0_mid_bg">#47361F</color>
-    <color name="cn0_mid_text">#FFCE84</color>
-    <color name="cn0_low_bg">#4A2323</color>
-    <color name="cn0_low_text">#FFAAAA</color>
+    <color name="cn0_good_bg">#173325</color>
+    <color name="cn0_good_text">#86E0A8</color>
+    <color name="cn0_good_dot">#4CC27E</color>
+    <color name="cn0_mid_bg">#3A2D17</color>
+    <color name="cn0_mid_text">#F7C873</color>
+    <color name="cn0_mid_dot">#E8A93A</color>
+    <color name="cn0_low_bg">#3D1D1F</color>
+    <color name="cn0_low_text">#FFA8A8</color>
+    <color name="cn0_low_dot">#F06363</color>
 </resources>

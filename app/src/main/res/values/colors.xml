@@ -2,19 +2,30 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="ui_bg">#F3F6FB</color>
-    <color name="ui_surface">#FFFFFFFF</color>
-    <color name="ui_header_bg">#1F4AA8</color>
-    <color name="ui_header_text">#FFFFFFFF</color>
-    <color name="ui_status_bar">#173B86</color>
-    <color name="ui_primary_text">#1A1D24</color>
-    <color name="ui_secondary_text">#5E6472</color>
-    <color name="ui_divider">#D9E0EE</color>
 
-    <color name="cn0_good_bg">#DDF5E6</color>
-    <color name="cn0_good_text">#0B6B38</color>
-    <color name="cn0_mid_bg">#FFF0D8</color>
-    <color name="cn0_mid_text">#9B5A00</color>
-    <color name="cn0_low_bg">#FFE0E0</color>
-    <color name="cn0_low_text">#9F1B1B</color>
+    <!-- 基础色板：中性灰底 + 白色卡片 + 单一蓝色强调 -->
+    <color name="ui_bg">#F2F4F7</color>
+    <color name="ui_surface">#FFFFFFFF</color>
+    <color name="ui_surface_variant">#F6F7F9</color>
+    <color name="ui_header_bg">#FFFFFFFF</color>
+    <color name="ui_header_text">#14171C</color>
+    <color name="ui_status_bar">#FFFFFFFF</color>
+    <color name="ui_primary_text">#14171C</color>
+    <color name="ui_secondary_text">#5B6270</color>
+    <color name="ui_tertiary_text">#8A909C</color>
+    <color name="ui_divider">#E3E6EB</color>
+    <color name="ui_accent">#2457D6</color>
+    <color name="ui_accent_soft">#EAF0FD</color>
+    <color name="ui_accent_pressed">#D6E2FB</color>
+
+    <!-- C/N0 等级 -->
+    <color name="cn0_good_bg">#E3F5EA</color>
+    <color name="cn0_good_text">#0E6B3A</color>
+    <color name="cn0_good_dot">#1F9D57</color>
+    <color name="cn0_mid_bg">#FDF1DC</color>
+    <color name="cn0_mid_text">#8A5300</color>
+    <color name="cn0_mid_dot">#E09A1A</color>
+    <color name="cn0_low_bg">#FCE5E5</color>
+    <color name="cn0_low_text">#9B1C1C</color>
+    <color name="cn0_low_dot">#D93A3A</color>
 </resources>
